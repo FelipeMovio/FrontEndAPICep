@@ -1,6 +1,7 @@
 import React from "react";
 
-function respostasApi() {
+function RespostasApi({ resposta }) {
+  console.log(resposta);
   return (
     <div>
       <h1></h1>
@@ -8,4 +9,4 @@ function respostasApi() {
   );
 }
 
-export default respostasApi;
+export default RespostasApi;
