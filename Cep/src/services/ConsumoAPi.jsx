@@ -22,7 +22,7 @@ function ConsumoAPi() {
 
   return (
     <div>
-      <h1>Econtre seu Cep</h1>
+      <h2>Econtre seu Cep</h2>
       <input ref={inputRef} type="text" placeholder="Digite seu UF" />
       <input ref={inputRef2} type="text" placeholder="Digite sua Cidade" />
       <input ref={inputRef3} type="text" placeholder="Digite sua Rua" />
