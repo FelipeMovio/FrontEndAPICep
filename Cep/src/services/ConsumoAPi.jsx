@@ -2,37 +2,58 @@ import React, { useRef, useState } from "react";
 import axios from "axios";
 import RespostasApi from "../pages/respostasApi";
 
-function ConsumoAPi() {
+function ConsumoApi() {
   const inputRef = useRef();
   const inputRef2 = useRef();
   const inputRef3 = useRef();
-  const [resposta, setRespostas] = useState();
+  const [resposta, setRespostas] = useState(null);
+  const [erro, setErro] = useState(null);
 
   async function buscarCep() {
-    const uf = inputRef.current.value;
-    const cidade = inputRef2.current.value;
-    const rua = inputRef3.current.value;
+    // Limpa erros anteriores
+    setErro(null);
+    setRespostas(null);
+
+    // Pega valores e formata
+    const uf = inputRef.current.value.trim();
+    const cidade = encodeURIComponent(inputRef2.current.value.trim());
+    const rua = encodeURIComponent(inputRef3.current.value.trim());
+
+    // Validação básica
+    if (!uf || !cidade || !rua) {
+      setErro("Preencha todos os campos.");
+      return;
+    }
 
     const api = `http://localhost:8080/consult-rua/${uf}/${cidade}/${rua}`;
 
-    const apiInfo = await axios.get(api); // chamada da API
-
-    setRespostas(apiInfo.data);
+    try {
+      const apiInfo = await axios.get(api);
+      setRespostas(apiInfo.data);
+    } catch (err) {
+      console.error("Erro na requisição:", err);
+      setErro(
+        "Erro ao buscar dados. Verifique se a API está online e os dados estão corretos."
+      );
+    }
   }
 
   return (
     <div>
-      <h2>Econtre seu Cep</h2>
+      <h2>Encontre seu CEP</h2>
+
       <input ref={inputRef} type="text" placeholder="Digite seu UF" />
       <input ref={inputRef2} type="text" placeholder="Digite sua Cidade" />
       <input ref={inputRef3} type="text" placeholder="Digite sua Rua" />
 
       <button onClick={buscarCep}>Buscar</button>
 
-      <h2>Seu Cep é ...</h2>
+      {erro && <p style={{ color: "red" }}>{erro}</p>}
+
+      <h2>Seu CEP é:</h2>
       {resposta && <RespostasApi resposta={resposta} />}
     </div>
   );
 }
 
-export default ConsumoAPi;
+export default ConsumoApi;
