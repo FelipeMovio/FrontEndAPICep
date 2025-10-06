@@ -25,7 +25,11 @@ function ConsumoApi() {
       return;
     }
 
-    const api = `http://viacep.com.br/ws/${uf}/${cidade}/${rua}/json`;
+    // URL da API publica
+    //const api = `http://viacep.com.br/ws/${uf}/${cidade}/${rua}/json`;
+
+    // URL da API consumida localmente
+    const api = `http://localhost:8080/consult-rua/${uf}/${cidade}/${rua}`;
 
     try {
       const apiInfo = await axios.get(api);
