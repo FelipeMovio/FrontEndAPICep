@@ -1,10 +1,22 @@
 import React from "react";
 
-function RespostasApi({ resposta }) {
-  console.log(resposta);
+function RespostasApi({ resultado }) {
+  console.log(resultado);
   return (
     <div>
-      <h1></h1>
+      <div>
+        <h2>Resultados:</h2>
+        <ul>
+          {resultado.map((item, index) => (
+            <li key={index}>
+              <strong>CEP:</strong> {item.cep} <br />
+              <strong>Logradouro:</strong> {item.logradouro} <br />
+              <strong>Bairro:</strong> {item.bairro} <br />
+              <strong>Localidade:</strong> {item.localidade} - {item.uf}
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }
