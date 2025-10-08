@@ -6,7 +6,7 @@ function ConsumoApi() {
   const inputUf = useRef();
   const inputCidade = useRef();
   const inputRua = useRef();
-  const [resultado, setResultado] = useState({});
+  const [resultado, setResultado] = useState([]);
   const [erro, setErro] = useState(null);
 
   const buscarDados = async () => {
@@ -23,8 +23,12 @@ function ConsumoApi() {
     try {
       const apiInfo = await axios.get(api);
       setResultado(apiInfo.data);
-      setErro;
-      null;
+      setErro(null);
+
+      // ✅ Limpa os inputs
+      inputUf.current.value = "";
+      inputCidade.current.value = "";
+      inputRua.current.value = "";
     } catch (err) {
       console.error("Erro na requisição:", err);
       setErro(
@@ -47,7 +51,7 @@ function ConsumoApi() {
       {erro && <p style={{ color: "red" }}>{erro}</p>}
 
       <h2>Seu CEP é:</h2>
-      {resultado && <RespostasApi resposta={resultado} />}
+      {resultado && <RespostasApi resultado={resultado} />}
     </div>
   );
 }

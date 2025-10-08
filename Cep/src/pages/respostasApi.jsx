@@ -5,7 +5,6 @@ function RespostasApi({ resultado }) {
   return (
     <div>
       <div>
-        <h2>Resultados:</h2>
         <ul>
           {resultado.map((item, index) => (
             <li key={index}>
