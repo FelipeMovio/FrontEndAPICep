@@ -14,6 +14,11 @@ function ConsumoApi() {
     const cidade = inputCidade.current.value;
     const rua = inputRua.current.value;
 
+    if (!uf || !cidade || !rua) {
+      setErro("Por favor, preencha todos os campos.");
+      return;
+    }
+
     // URL da API publica
     //const api = `http://viacep.com.br/ws/${uf}/${cidade}/${rua}/json`;
 
