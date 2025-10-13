@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-function CepsMaisPesquisados() {
+function HistoricoPesquisas() {
   const [ceps, setCeps] = useState([]);
 
   useEffect(() => {
@@ -20,8 +20,8 @@ function CepsMaisPesquisados() {
       <ul>
         {ceps.map((cep, index) => (
           <li key={index}>
-            <strong>{cep.cep}</strong> - {cep.logradouro}, {cep.bairro},{" "}
-            {cep.localidade} - {cep.uf}
+            <strong>{cep.cep}</strong> - {cep.bairro}, {cep.localidade} -{" "}
+            {cep.uf}
             <br />
             <small>🔁 Pesquisado {cep.qtdPesquisas} vezes</small>
           </li>
@@ -31,4 +31,4 @@ function CepsMaisPesquisados() {
   );
 }
 
-export default CepsMaisPesquisados;
+export default HistoricoPesquisas;
