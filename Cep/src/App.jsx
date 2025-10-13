@@ -4,7 +4,7 @@ import "./App.css";
 
 function App() {
   return (
-    <div>
+    <div className="container">
       <h1>Buscador de Cep</h1>
       <ConsumoAPi />
     </div>
