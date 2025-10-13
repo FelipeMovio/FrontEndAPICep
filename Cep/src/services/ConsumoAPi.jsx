@@ -46,13 +46,15 @@ function ConsumoApi() {
 
   return (
     <div>
-      <h2>Encontre seu CEP</h2>
+      <div className="inputs">
+        <h2>Encontre seu CEP</h2>
 
-      <input ref={inputUf} type="text" placeholder="UF (ex: SP)" />
-      <input ref={inputCidade} type="text" placeholder="Cidade" />
-      <input ref={inputRua} type="text" placeholder="Rua" />
+        <input ref={inputUf} type="text" placeholder="UF (ex: SP)" />
+        <input ref={inputCidade} type="text" placeholder="Cidade" />
+        <input ref={inputRua} type="text" placeholder="Rua" />
 
-      <button onClick={buscarDados}>Buscar</button>
+        <button onClick={buscarDados}>Buscar</button>
+      </div>
 
       {erro && <p style={{ color: "red" }}>{erro}</p>}
 
@@ -61,7 +63,7 @@ function ConsumoApi() {
         {resultado && <RespostasApi resultado={resultado} />}
       </div>
 
-      <div>
+      <div className="historico">
         <h3>Ultimas Pesquisas : </h3>
         <HistoricoPesquisas />
       </div>
