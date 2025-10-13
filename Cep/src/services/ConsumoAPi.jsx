@@ -55,8 +55,15 @@ function ConsumoApi() {
 
       {erro && <p style={{ color: "red" }}>{erro}</p>}
 
-      <h2>Seu CEP é:</h2>
-      {resultado && <RespostasApi resultado={resultado} />}
+      <div className="resultado">
+        <h2>Seu CEP é:</h2>
+        {resultado && <RespostasApi resultado={resultado} />}
+      </div>
+
+      <div>
+        <h3>Endereços mais pesquisados : </h3>
+        {resultado && <CepsMaisPesquisados resultado={resultado} />}
+      </div>
     </div>
   );
 }
