@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import axios from "axios";
 import RespostasApi from "../pages/respostasApi";
+import CepsMaisPesquisados from "../pages/CepsMaisPesquisados";
 
 function ConsumoApi() {
   const inputUf = useRef();
@@ -62,7 +63,7 @@ function ConsumoApi() {
 
       <div>
         <h3>Endereços mais pesquisados : </h3>
-        {resultado && <CepsMaisPesquisados resultado={resultado} />}
+        <CepsMaisPesquisados />
       </div>
     </div>
   );
