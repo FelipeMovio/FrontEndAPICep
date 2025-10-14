@@ -63,7 +63,7 @@ function ConsumoApi() {
 
         <div className="resultado">
           <div className="logo">
-            <h2>Informações do CEP pesquisado :</h2>
+            <h2>Informações do endereço pesquisado:</h2>
           </div>
           {resultado && <RespostasApi resultado={resultado} />}
         </div>
