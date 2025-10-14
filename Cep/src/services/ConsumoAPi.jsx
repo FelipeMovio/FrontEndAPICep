@@ -48,7 +48,9 @@ function ConsumoApi() {
     <div className="main-content">
       <div className="left-content">
         <div className="inputs">
-          <h2>Encontre seu CEP</h2>
+          <div className="logo">
+            <h2>Encontre seu CEP</h2>
+          </div>
 
           <input ref={inputUf} type="text" placeholder="UF (ex: SP)" />
           <input ref={inputCidade} type="text" placeholder="Cidade" />
@@ -60,7 +62,9 @@ function ConsumoApi() {
         {erro && <p className="error">{erro}</p>}
 
         <div className="resultado">
-          <h2>Seu CEP é:</h2>
+          <div className="logo">
+            <h2>Informações do CEP pesquisado :</h2>
+          </div>
           {resultado && <RespostasApi resultado={resultado} />}
         </div>
       </div>
