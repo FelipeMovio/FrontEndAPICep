@@ -6,17 +6,23 @@ body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f0f2f5;
   color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
 }
 
 h1 {
   text-align: center;
-  margin-top: 20px;
   color: #222;
+  margin-top: 40px;
 }
 
+/* Container principal para centralizar */
 .container {
+  width: 100%;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 40px auto;
   padding: 20px;
   background: white;
   border-radius: 10px;
@@ -26,6 +32,7 @@ h1 {
 /* Layout principal: inputs/resultados à esquerda, histórico à direita */
 .main-content {
   display: flex;
+  justify-content: space-between;
   gap: 30px;
   margin-top: 20px;
 }
@@ -98,12 +105,12 @@ h1 {
 }
 
 .historico ul {
-  list-style: none;
   padding: 0;
   margin: 0;
 }
 
 .historico li {
+  list-style: none; /* ✅ remove os pontos da lista */
   margin-bottom: 12px;
   padding: 10px;
   background-color: #eef5ff;
