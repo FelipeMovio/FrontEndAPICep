@@ -11,9 +11,9 @@ function ConsumoApi() {
   const [erro, setErro] = useState(null);
 
   const buscarDados = async () => {
-    const uf = inputUf.current.value;
-    const cidade = inputCidade.current.value;
-    const rua = inputRua.current.value;
+    const uf = inputUf.current.value.toUpperCase();
+    const cidade = inputCidade.current.value.trim();
+    const rua = inputRua.current.value.trim();
 
     if (!uf || !cidade || !rua) {
       setErro("Por favor, preencha todos os campos.");
