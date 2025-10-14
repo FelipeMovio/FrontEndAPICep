@@ -29,7 +29,7 @@ function HistoricoPesquisas() {
 
   return (
     <div>
-      <h2>Mais Pesquisados (Atualiza a cada 5s)</h2>
+      <h2>Historico de Pesquisas (Atualiza a cada 5s)</h2>
       <ul>
         {ceps.map((cep, index) => (
           <li key={index}>
